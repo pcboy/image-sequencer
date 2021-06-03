@@ -43,9 +43,9 @@ function ReplaceImage(ref, selector, steps, options) {
     function make(url) {
       tempSequencer.loadImage(url, function(){
         // this.addSteps(steps).run({stop:function(){}},function(out){
-        var sequence = this.addSteps(steps);
+        var sequence = tempSequencer.addSteps(steps);
         if (ref.detectStringSyntax(steps))
-          sequence = this.stringToSteps(steps);
+          sequence = tempSequencer.stringToSteps(steps);
         sequence.run({stop:function(){}}, function(out){
           img.src = out;
         });
